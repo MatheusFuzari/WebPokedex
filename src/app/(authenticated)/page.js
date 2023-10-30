@@ -1,9 +1,9 @@
 import Image from 'next/image'
-
+import 'tailwindcss'
 export default function Home() {
   return (
     <main>
-      Estou na home!
+      <p className="text-red-500 text-lg">Estou na home!</p>
     </main>
   )
 }
