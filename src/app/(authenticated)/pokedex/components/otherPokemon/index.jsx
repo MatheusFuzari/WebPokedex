@@ -11,7 +11,8 @@ export default function OtherPokemon(props) {
       setPoke(pokemon);
     })()
   },[pokeId])
-
+  let pokeName = String(poke.name)
+  pokeName = pokeName.charAt(0).toUpperCase() + pokeName.slice(1);
   if(poke.length === 0){
     return(
       <p>Carregando...</p>
@@ -21,12 +22,14 @@ export default function OtherPokemon(props) {
     <>
         <ul>
           <li>
-            <p className='text-red-500'>{poke.name}</p>
+            <p className='text-green-500'>{pokeName}</p>
             <p>{poke.id}</p>
           </li>
-          <img src={`${poke.sprites.front_default}`}></img>
         </ul>
-        <button onClick={()=>{pokeId>=2 ? setPokeId(pokeId-1) : null}}>
+        <img className='w-60 h-60' src={`${poke.sprites.front_default}`}></img>
+        <button onClick={()=>{
+          pokeId>=2 ? setPokeId(pokeId-1) : null
+        }}>
           Anterior
         </button>
         <button onClick={()=>{setPokeId(pokeId+1)}}>
