@@ -19,22 +19,36 @@ export default function OtherPokemon(props) {
     )
   }
   return (
-    <>
+    <div>
+      <div className='h-50 flex items-center justify-center'>
         <ul>
           <li>
             <p className='text-green-500'>{pokeName}</p>
+          </li>
+          <li>
             <p>{poke.id}</p>
           </li>
+          {poke.types.map(pokemon =>(
+              
+              <li>
+                {console.log(pokemon.type.name=='grass')}
+                <div className='bg-green-400 rounded-lg w-12 text-center text-white shadow-sm shadow-green-700'><p>{pokemon.type.name}</p></div>
+              </li>
+            ))
+          }
         </ul>
         <img className='w-60 h-60' src={`${poke.sprites.front_default}`}></img>
-        <button onClick={()=>{
+      </div>
+      <div className='items-center flex h-50 justify-center'>
+        <button className='p-3 bg-blue-500 rounded-md text-white' onClick={()=>{
           pokeId>=2 ? setPokeId(pokeId-1) : null
         }}>
           Anterior
         </button>
-        <button onClick={()=>{setPokeId(pokeId+1)}}>
+        <button className='p-3 bg-blue-500 rounded-md text-white mx-2' onClick={()=>{setPokeId(pokeId+1)}}>
           Próximo
         </button>
-    </>
+      </div>
+    </div>
   )
 }
