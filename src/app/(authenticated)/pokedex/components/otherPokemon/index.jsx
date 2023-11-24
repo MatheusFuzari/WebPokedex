@@ -20,35 +20,26 @@ export default function OtherPokemon(props) {
   }
   return (
     <div>
-      <div className='h-50 flex items-center justify-center'>
-        <ul>
-          <li>
-            <p className='text-green-500'>{pokeName}</p>
-          </li>
-          <li>
-            <p>{poke.id}</p>
-          </li>
-          {poke.types.map(pokemon =>(
-              
-              <li>
-                {console.log(pokemon.type.name=='grass')}
-                <div className='bg-green-400 rounded-lg w-12 text-center text-white shadow-sm shadow-green-700'><p>{pokemon.type.name}</p></div>
-              </li>
-            ))
-          }
-        </ul>
-        <img className='w-60 h-60' src={`${poke.sprites.front_default}`}></img>
+      <div className='inline w-28 '>
+        <img className='-z-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' src='../static/images/gbaTemplateAAA.png'></img>
+        <div className='z-10 absolute left-3/4 top-1/3 -translate-x-52 translate-y-7 w-32 h-32'>
+          <div>
+            <button className='p-2 w-10 h-10 bg-white -500 rounded-full text-black absolute bottom-0' onClick={()=>{
+              pokeId>=2 ? setPokeId(pokeId-1) : null
+            }}>
+              A
+            </button>
+          </div>
+          <button className='p-2 w-10 h-10 bg-white rounded-full text-black absolute right-2.5 bottom-8' onClick={()=>{setPokeId(pokeId+1)}}>
+            B
+          </button>
+        </div>
       </div>
-      <div className='items-center flex h-50 justify-center'>
-        <button className='p-3 bg-blue-500 rounded-md text-white' onClick={()=>{
-          pokeId>=2 ? setPokeId(pokeId-1) : null
-        }}>
-          Anterior
-        </button>
-        <button className='p-3 bg-blue-500 rounded-md text-white mx-2' onClick={()=>{setPokeId(pokeId+1)}}>
-          Próximo
-        </button>
+      <div className='h-50 flex items-center justify-center translate-y-full'>
+        <img className='w-60 h-60 z-10' src={`${poke.sprites.front_default}`}></img>
+        <p className='text-white absolute -bottom-11 font-bold text-lg'>{pokeName}&nbsp;&nbsp;&nbsp;<span className='text-gray-500'>N° {poke.id}</span></p>
       </div>
+      
     </div>
   )
 }
