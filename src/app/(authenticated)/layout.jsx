@@ -11,8 +11,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <nav>
-          <ul className='flex items-center flex-wrap bg-white p-6'>
+        <nav >
+          <ul className='flex items-center flex-wrap bg-gray-950 divide-opacity-95 p-6'>
             <li className='mr-6'>
               <Link href={'/'} className='text-blue-500 hover:text-blue-800'>Home</Link>
             </li>
@@ -24,7 +24,6 @@ export default function RootLayout({ children }) {
             </li>
           </ul>
         </nav>
-        <hr />
         {children}
       </body>
     </html>
